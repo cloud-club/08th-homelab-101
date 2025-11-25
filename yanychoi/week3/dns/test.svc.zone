@@ -1,0 +1,13 @@
+$ORIGIN test.svc.
+@   3600 IN SOA sns.dns.icann.org. noc.dns.icann.org. (
+                2025112501 ; serial
+                7200       ; refresh (2 hours)
+                3600       ; retry (1 hour)
+                1209600    ; expire (2 weeks)
+                3600       ; minimum (1 hour)
+                )
+
+    3600 IN NS ns.test.svc.
+
+nginx           IN A     192.168.0.32
+ns              IN A     127.0.0.1

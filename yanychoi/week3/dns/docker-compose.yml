@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  coredns:
+    image: coredns/coredns:latest
+    container_name: coredns
+    restart: unless-stopped
+    ports:
+      - "0.0.0.0:5353:53/udp"
+      - "0.0.0.0:5353:53/tcp"
+    volumes:
+      - ./Corefile:/etc/coredns/Corefile
+      - ./test.svc.zone:/etc/coredns/test.svc.zone
+    command: -conf /etc/coredns/Corefile

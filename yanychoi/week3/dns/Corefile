@@ -1,0 +1,13 @@
+.:53 {
+    log
+    errors
+
+    # Handle test.svc domain
+    file /etc/coredns/test.svc.zone test.svc
+
+    # Forward other queries to upstream DNS
+    forward . 8.8.8.8 8.8.4.4
+
+    cache 30
+    reload
+}
